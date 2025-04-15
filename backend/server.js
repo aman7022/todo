@@ -4,7 +4,7 @@ const cors = require('cors');
 
 const app = express();
 const PORT = 5000;
-const MONGO_URL = 'mongodb://admin:password@mongodb:27017';
+const MONGO_URL = 'mongodb://admin:password@mongodb:27017'; // mongo atlas
 const DB_NAME = 'local';
 
 app.use(cors());
