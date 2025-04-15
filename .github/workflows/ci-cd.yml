@@ -14,29 +14,44 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
+      - name: Verify Directory Structure (debugging)
+        run: |
+          echo "Current Directory:"
+          pwd
+          echo "Listing Root Directory:"
+          ls -R .
+
       - name: Set Up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
 
+      - name: Check Directory Structure (demo/todo/todo)
+        run: |
+          ls -R demo/todo/todo
+
       - name: Install Backend Dependencies
         run: |
-          cd todo/backend
+          echo "Installing backend dependencies in demo/todo/todo/backend"
+          cd demo/todo/todo/backend
           npm install
 
       - name: Install Frontend Dependencies
         run: |
-          cd todo/frontend
+          echo "Installing frontend dependencies in demo/todo/todo/frontend"
+          cd demo/todo/todo/frontend
           npm install
 
       - name: Build Frontend
         run: |
-          cd todo/frontend
+          echo "Building frontend in demo/todo/todo/frontend"
+          cd demo/todo/todo/frontend
           npm run build
 
       - name: Run Backend Tests (optional)
         run: |
-          cd todo/backend
+          echo "Running backend tests in demo/todo/todo/backend"
+          cd demo/todo/todo/backend
           npm test || echo "No tests available"
 
       - name: Log in to Docker Hub
@@ -47,7 +62,9 @@ jobs:
 
       - name: Build and Push Docker Images
         run: |
-          docker build -t aman585/todo-backend ./todo/backend
-          docker build -t aman585/todo-frontend ./todo/frontend
+          echo "Building and pushing Docker images for backend"
+          docker build -t aman585/todo-backend ./demo/todo/todo/backend
+          echo "Building and pushing Docker images for frontend"
+          docker build -t aman585/todo-frontend ./demo/todo/todo/frontend
           docker push aman585/todo-backend
           docker push aman585/todo-frontend
