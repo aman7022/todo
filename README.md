@@ -13,7 +13,7 @@ docker compose -f docker-compose.yml up
 docker-compose -f docker-compose.yml up
 ```
 
-## On browser
+## On browsers
 # to access frontend
 ```bash
 http://localhost:5173/
