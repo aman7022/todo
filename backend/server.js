@@ -6,7 +6,7 @@ const app = express();
 const PORT = 5000;
 
 // 🔥 Correct MongoDB URL (use your actual username/password)
-const MONGO_URL = 'mongodb://admin:password@mongo:27017/todo?authSource=admin';
+const MONGO_URL = 'mongodb://admin:password@mongodb:27017/todo?authSource=admin';
 
 // 🔥 Use your actual database name (NOT local)
 const DB_NAME = 'todo';
